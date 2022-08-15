@@ -1,6 +1,7 @@
 package com.example.textmeapp
 
 import android.animation.Animator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,23 +16,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
+        /** Handling splash screen animation **/
         val animation = findViewById<LottieAnimationView>(R.id.animView)
         animation.addAnimatorListener(object: Animator.AnimatorListener{
-            override fun onAnimationStart(p0: Animator?) {
-
-            }
+            override fun onAnimationStart(p0: Animator?) {}
 
             override fun onAnimationEnd(p0: Animator?) {
-                Toast.makeText(applicationContext, "end", Toast.LENGTH_SHORT).show()
+                val i = Intent(applicationContext, RegisterPhoneNo::class.java)
+                startActivity(i)
             }
 
-            override fun onAnimationCancel(p0: Animator?) {
+            override fun onAnimationCancel(p0: Animator?) {}
 
-            }
-
-            override fun onAnimationRepeat(p0: Animator?) {
-
-            }
+            override fun onAnimationRepeat(p0: Animator?) {}
 
         })
     }
