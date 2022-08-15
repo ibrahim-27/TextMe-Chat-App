@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "468802632365",
+    "project_id": "textme-app-e9c8d",
+    "storage_bucket": "textme-app-e9c8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468802632365:android:0d313a3c50cc14d7532424",
+        "android_client_info": {
+          "package_name": "com.example.textmeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468802632365-8aaporea76hrbvm6222t0jc2po7va8fh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANrIsTg2KXcdqD3wxzuUH6aZtnshpLzgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468802632365-8aaporea76hrbvm6222t0jc2po7va8fh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
