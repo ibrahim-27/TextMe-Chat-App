@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextMeApp">
         <activity
+            android:name=".HomeScreen"
+            android:exported="false" />
+        <activity
+            android:name=".SetupProfile"
+            android:exported="false" />
+        <activity
             android:name=".PhoneNoVerification"
             android:exported="false"
-            android:windowSoftInputMode="stateVisible"/>
+            android:windowSoftInputMode="stateVisible" />
         <activity
             android:name=".RegisterPhoneNo"
             android:exported="false"
-            android:windowSoftInputMode="stateVisible"/>
+            android:windowSoftInputMode="stateVisible" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

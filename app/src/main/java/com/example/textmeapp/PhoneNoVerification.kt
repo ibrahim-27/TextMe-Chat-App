@@ -4,6 +4,7 @@ import `in`.aabhasjindal.otptextview.OTPListener
 import `in`.aabhasjindal.otptextview.OtpTextView
 import android.R
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -68,9 +69,10 @@ class PhoneNoVerification : AppCompatActivity() {
                 val credential: PhoneAuthCredential =
                     PhoneAuthProvider.getCredential(verificationId, binding.otpView.otp.toString())
                 auth.signInWithCredential(credential).addOnCompleteListener {
-                    if (it.isSuccessful)
-                        Toast.makeText(this@PhoneNoVerification, "success", Toast.LENGTH_SHORT)
-                            .show()
+                    if (it.isSuccessful) {
+                        val i = Intent(this@PhoneNoVerification, SetupProfile::class.java)
+                        startActivity(i)
+                    }
                     else
                         Toast.makeText(this@PhoneNoVerification, "failed", Toast.LENGTH_SHORT)
                             .show()
