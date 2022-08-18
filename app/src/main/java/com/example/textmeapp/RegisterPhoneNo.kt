@@ -44,6 +44,7 @@ class RegisterPhoneNo : AppCompatActivity() {
         {
             val i = Intent(this, HomeScreen::class.java)
             startActivity(i)
+            finishAffinity()
         }
     }
 }

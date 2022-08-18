@@ -1,10 +1,19 @@
 package com.example.textmeapp
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View.inflate
+import android.widget.Toast
+import androidx.core.content.res.ColorStateListInflaterCompat.inflate
+import androidx.core.content.res.ComplexColorCompat.inflate
 import com.example.textmeapp.DataClass.User
+import com.example.textmeapp.databinding.ActivityHomeScreenBinding.inflate
 import com.example.textmeapp.databinding.ActivitySetupProfileBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
@@ -46,6 +55,12 @@ class SetupProfile : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            /** Dialog box - loading for profile setup **/
+            val dialog = ProgressDialog(this)
+            dialog.setMessage("Logging in")
+            dialog.setCancelable(false)
+            dialog.show()
+
             if(profileImage != null) {
                 val sref = auth.uid?.let { it1 -> storage.reference.child("Profiles").child(it1) }
                 sref?.putFile(profileImage!!)?.addOnCompleteListener {
@@ -64,9 +79,14 @@ class SetupProfile : AppCompatActivity() {
                             auth.uid?.let { it1 -> database.getReference("Users").child(it1).setValue(user).addOnCompleteListener {
                                 if(it.isSuccessful)
                                 {
+                                    dialog.dismiss()
                                     val i = Intent(this, HomeScreen::class.java)
                                     startActivity(i)
                                     finishAffinity()
+                                }
+                                else{
+                                    dialog.dismiss()
+                                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                                 }
                             } }
                         }

@@ -65,6 +65,7 @@
         android:layout_marginEnd="8dp"
         android:background="@color/white"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
@@ -79,7 +80,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="10dp"
-            android:textColorHint="@color/black_coffee"
+            android:textColorHint="@android:color/darker_gray"
             android:textSize="20sp" />
 
         <Button
