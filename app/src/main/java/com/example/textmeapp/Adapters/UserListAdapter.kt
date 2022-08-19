@@ -13,18 +13,11 @@ import com.example.textmeapp.DataClass.User
 import com.example.textmeapp.R
 import de.hdodenhof.circleimageview.CircleImageView
 
-class UserListAdapter(var userList: List<User>, var context: Context):
+class UserListAdapter(var userList: List<User>, var context: Context, var onClick: OnUserClick):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.sample_conversation, parent, false)
-
-        view.setOnClickListener()
-        {
-            val i = Intent(context, Chat::class.java)
-            context.startActivity(i)
-        }
-
-        return UserListViewHolder(view)
+        return UserListViewHolder(view, onClick)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -40,5 +33,16 @@ class UserListAdapter(var userList: List<User>, var context: Context):
         return userList.size
     }
 
-    inner class UserListViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
+    inner class UserListViewHolder(itemView: View, onClick: OnUserClick):RecyclerView.ViewHolder(itemView)
+    {
+        init {
+            itemView.setOnClickListener(){onClick.onUserClick(adapterPosition)}
+        }
+    }
+
+    /** Interface to handle onClick **/
+    interface OnUserClick
+    {
+        fun onUserClick(pos:Int)
+    }
 }

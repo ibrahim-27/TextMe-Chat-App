@@ -18,10 +18,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class HomeScreen : AppCompatActivity() {
+class HomeScreen : AppCompatActivity(), UserListAdapter.OnUserClick {
 
     val database = Firebase.database
     val auth = Firebase.auth
+
+    lateinit var userList: ArrayList<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +31,8 @@ class HomeScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         /** List and Adapter for rcv **/
-        var userList : ArrayList<User> = ArrayList()
-        var adapter = UserListAdapter(userList, this)
+        userList = ArrayList()
+        var adapter = UserListAdapter(userList, this, this)
 
         /** Database call **/
         val ref = database.getReference("Users")
@@ -72,5 +74,11 @@ class HomeScreen : AppCompatActivity() {
             finishAffinity()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    /** Interface function to handle onClick on rcv **/
+    override fun onUserClick(pos: Int) {
+        receiver = userList[pos]
+        startActivity(Intent(this, Chat::class.java))
     }
 }

@@ -3,13 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/drawable/btn_send_background.xml" value="0.13" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.13" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.13" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/drawable/message_receive_background.xml" value="0.13" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/drawable/messeage_send_background.xml" value="0.13" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_chat.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_home_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_phone_no_verification.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_register_phone_no.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/activity_setup_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/sample_conversation.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/sample_receive_message.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/layout/sample_send_message.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/TextMeApp/app/src/main/res/menu/top_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
