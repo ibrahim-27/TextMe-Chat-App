@@ -38,12 +38,12 @@ class HomeScreen : AppCompatActivity(), UserListAdapter.OnUserClick {
         val ref = database.getReference("Users")
         ref.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                for(users in snapshot.children)
+                for(user in snapshot.children)
                 {
-                    if(users.child("uid").value == auth.currentUser?.uid)
+                    if(user.child("uid").value == auth.currentUser?.uid)
                         continue
 
-                    users.getValue(User::class.java)?.let { userList.add(it)}
+                    user.getValue(User::class.java)?.let { userList.add(it)}
                 }
 
                 binding.rcvUserList.adapter = adapter

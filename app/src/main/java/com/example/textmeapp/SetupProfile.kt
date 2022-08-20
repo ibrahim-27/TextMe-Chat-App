@@ -54,6 +54,12 @@ class SetupProfile : AppCompatActivity() {
                 binding.etName.setError("Please enter your name")
                 return@setOnClickListener
             }
+            
+            if(profileImage == null)
+            {
+                Toast.makeText(this, "Please select a profile pic", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             /** Dialog box - loading for profile setup **/
             val dialog = ProgressDialog(this)
@@ -61,35 +67,32 @@ class SetupProfile : AppCompatActivity() {
             dialog.setCancelable(false)
             dialog.show()
 
-            if(profileImage != null) {
-                val sref = auth.uid?.let { it1 -> storage.reference.child("Profiles").child(it1) }
-                sref?.putFile(profileImage!!)?.addOnCompleteListener {
-                    if (it.isSuccessful)
-                    {
-                        sref.downloadUrl.addOnSuccessListener {
-                            /** Setting up user data **/
-                            val imgUrl = it.toString()
-                            val uid = auth.uid
-                            val phoneNumber = auth.currentUser?.phoneNumber
-                            val name = binding.etName.text.toString()
 
-                            val user = User(uid, name, phoneNumber, imgUrl)
-
-                            /** Storing user info on database **/
-                            auth.uid?.let { it1 -> database.getReference("Users").child(it1).setValue(user).addOnCompleteListener {
-                                if(it.isSuccessful)
-                                {
-                                    dialog.dismiss()
-                                    val i = Intent(this, HomeScreen::class.java)
-                                    startActivity(i)
-                                    finishAffinity()
-                                }
-                                else{
-                                    dialog.dismiss()
-                                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                                }
-                            } }
-                        }
+            val sref = auth.uid?.let { it1 -> storage.reference.child("Profiles").child(it1) }
+            sref?.putFile(profileImage!!)?.addOnCompleteListener {
+                if (it.isSuccessful)
+                {
+                    sref.downloadUrl.addOnSuccessListener {
+                        /** Setting up user data **/
+                        val imgUrl = it.toString()
+                        val uid = auth.uid
+                        val phoneNumber = auth.currentUser?.phoneNumber
+                        val name = binding.etName.text.toString()
+                        val user = User(uid, name, phoneNumber, imgUrl)
+                        /** Storing user info on database **/
+                        auth.uid?.let { it1 -> database.getReference("Users").child(it1).setValue(user).addOnCompleteListener {
+                            if(it.isSuccessful)
+                            {
+                                dialog.dismiss()
+                                val i = Intent(this, HomeScreen::class.java)
+                                startActivity(i)
+                                finishAffinity()
+                            }
+                            else{
+                                dialog.dismiss()
+                                Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            }
+                        } }
                     }
                 }
             }
