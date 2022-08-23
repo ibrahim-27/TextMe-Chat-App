@@ -8,3 +8,4 @@ A simple real-time texting app which allow users to chat with other users. User 
 4 - Recycler-view with multiple layouts.<br />
 5 - One to One relation in Firebase Database<br />
 6 - Setting image through the image url using Glide Library.<br />
+7 - Getting image from user's device - user uploading his/her image.<br />
